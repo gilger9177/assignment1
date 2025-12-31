@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Student Operations</title>
+</head>
+
+<body>
+
+  <h2>Student Names</h2>
+  <ul id="studentsList1"></ul>
+
+  <script>
+    const students = [
+      { id: 1, name: "Amit", marks: 78, department: "CSE" },
+      { id: 2, name: "Priya", marks: 92, department: "ECE" },
+      { id: 3, name: "Rahul", marks: 45, department: "MECH" },
+      { id: 4, name: "Sneha", marks: 66, department: "CSE" },
+      { id: 5, name: "Kiran", marks: 88, department: "ECE" }
+    ];
+
+    const ul1 = document.getElementById("studentsList1");
+
+    students.forEach(variable => {
+      const li = document.createElement("li");
+      li.textContent = variable.name;
+      ul1.appendChild(li);
+    });
+  </script>
+
+
+
+  <h2>Students Scored More Than 60</h2>
+  <ul id="studentsList2"></ul>
+
+  <script>
+    const ul2 = document.getElementById("studentsList2");
+
+    students.forEach(variable => {
+      if (variable.marks > 60) {
+        const li = document.createElement("li");
+        li.textContent = variable.name;
+        ul2.appendChild(li);
+      }
+    });
+  </script>
+
+
+  <h2>Department Wise Student Count</h2>
+  <ul id="studentsList3"></ul>
+
+  <script>
+    let cse_count = 0;
+    let ece_count = 0;
+    let mech_count = 0;
+
+    students.forEach(variable => {
+      if (variable.department === "CSE") {
+        cse_count++;
+      } else if (variable.department === "ECE") {
+        ece_count++;
+      } else if (variable.department === "MECH") {
+        mech_count++;
+      }
+    });
+
+    const ul3 = document.getElementById("studentsList3");
+
+    const li1 = document.createElement("li");
+    li1.textContent = "CSE =" + " " + cse_count;
+    ul3.appendChild(li1);
+    const li2 = document.createElement("li");
+    li2.textContent = "ECE =" + " " + ece_count;
+    ul3.appendChild(li2);
+    const li3 = document.createElement("li");
+    li3.textContent = "MECH =" + " " + mech_count;
+    ul3.appendChild(li3);
+
+  </script>
+
+
+
+
+</body>
+
+</html>
